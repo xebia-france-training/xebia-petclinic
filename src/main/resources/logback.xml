@@ -1,0 +1,74 @@
+<configuration scan="true" debug="false">
+
+   <if condition='isNull("catalina.home")'>
+      <then>
+         <property name="BASE_FOLDER" value="./target" />
+      </then>
+      <else>
+         <property name="BASE_FOLDER" value="${catalina.home}" />
+      </else>
+   </if>
+   <property name="LOGS_FOLDER" value="${BASE_FOLDER}/logs" />
+   <property name="LOGS_TO_COLLECT_FOLDER" value="${BASE_FOLDER}/logs-to-collect" />
+
+   <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+      <encoder>
+         <pattern>%d{yyyy/MM/dd HH:mm:ss,SSS} [%thread] %-5level %logger{36} - %m %throwable{0}%n</pattern>
+      </encoder>
+   </appender>
+
+   <appender name="log-file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <file>${LOGS_FOLDER}/petclinic.log</file>
+      <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+         <level>WARN</level>
+      </filter>
+      <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+         <fileNamePattern>${LOGS_TO_COLLECT_FOLDER}/petclinic.%d{yyyyMMdd}.log</fileNamePattern>
+      </rollingPolicy>
+      <encoder>
+         <pattern>%d{yyyy/MM/dd HH:mm:ss,SSS} [%thread] %-5level %logger{36} - %m %throwable{0}%n</pattern>
+      </encoder>
+   </appender>
+
+   <appender name="audit-file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <file>${LOGS_FOLDER}/petclinic-audit.log</file>
+      <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+         <fileNamePattern>${LOGS_TO_COLLECT_FOLDER}/petclinic-audit.%d{yyyyMMdd}.log.gzip</fileNamePattern>
+      </rollingPolicy>
+      <encoder>
+         <pattern>%m %throwable{0}%n</pattern>
+      </encoder>
+   </appender>
+
+   <appender name="performances-file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <file>${LOGS_FOLDER}/petclinic-performances.log</file>
+      <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+         <fileNamePattern>${LOGS_TO_COLLECT_FOLDER}/petclinic-performances.%d{yyyyMMdd}.log.gzip</fileNamePattern>
+      </rollingPolicy>
+      <encoder>
+         <pattern>%d{yyyy/MM/dd HH:mm:ss,SSS} [%thread] %-5level %logger{36} - %m %throwable{0}%n</pattern>
+      </encoder>
+   </appender>
+
+   <appender name="troubleshooting-file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <file>${LOGS_FOLDER}/petclinic-troubleshooting.log</file>
+      <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+         <fileNamePattern>${LOGS_FOLDER}/petclinic-troubleshooting.%i.log</fileNamePattern>
+         <maxIndex>10</maxIndex>
+      </rollingPolicy>
+      <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+         <maxFileSize>10MB</maxFileSize>
+      </triggeringPolicy>
+      <encoder>
+         <pattern>%d{yyyy/MM/dd HH:mm:ss,SSS} [%thread] %-5level %logger{36} - %m%n</pattern>
+      </encoder>
+   </appender>
+   
+      <logger name="org.springframework.samples.petclinic.aspects" level="DEBUG"/>
+   
+
+   <root level="WARN">
+      <appender-ref ref="log-file" />
+      <appender-ref ref="troubleshooting-file" />
+   </root>
+</configuration>
