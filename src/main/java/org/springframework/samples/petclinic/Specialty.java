@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Index;
+
 /**
  * Models a {@link Vet Vet's} specialty (for example, dentistry).
  * 
@@ -21,6 +23,7 @@ public class Specialty implements NamedEntity {
     private Integer id;
 
     @Basic
+    @Index(name="specialties_name")
     private String name;
 
     @Override

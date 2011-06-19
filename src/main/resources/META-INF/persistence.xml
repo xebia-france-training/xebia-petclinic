@@ -10,6 +10,7 @@
       <class>org.springframework.samples.petclinic.Visit</class>
       <properties>
          <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider" />
+         <property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml" />
       </properties>
    </persistence-unit>
 

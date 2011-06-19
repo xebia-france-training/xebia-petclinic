@@ -5,6 +5,8 @@ import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
+import org.joda.time.LocalDate;
 import org.junit.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -185,7 +187,7 @@ public abstract class AbstractClinicTests extends AbstractTransactionalJUnit4Spr
 		pet.setName("bowser");
 		Collection<PetType> types = this.clinic.getPetTypes();
 		pet.setType(EntityUtils.getById(types, PetType.class, 2));
-		pet.setBirthDate(new Date());
+		pet.setBirthDate(new LocalDate());
 		o6.addPet(pet);
 		assertEquals(found + 1, o6.getPets().size());
 		// both storePet and storeOwner are necessary to cover all ORM tools

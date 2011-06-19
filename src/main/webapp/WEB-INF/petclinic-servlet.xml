@@ -13,31 +13,18 @@
    <mvc:resources mapping="/static/images/**" location="/images/"/>
    <mvc:resources mapping="/static/styles/**" location="/styles/"/>
    
-   <mvc:annotation-driven />
-   
-   <context:component-scan base-package="org.springframework.samples.petclinic.web"/>
+   <mvc:annotation-driven conversion-service="conversionService"/>
 
-   <!--
-      - The form-based controllers within this application provide @RequestMapping 
-      - annotations at the type level for path mapping URLs and @RequestMapping 
-      - at the method level for request type mappings (e.g., GET and POST). 
-      - In contrast, ClinicController - which is not form-based - provides 
-      - @RequestMapping only at the method level for path mapping URLs.
-      -
-      - DefaultAnnotationHandlerMapping is driven by these annotations and is 
-      - enabled by default with Java 5+.
-   -->
-   
-   <!--
-      - This bean processes annotated handler methods, applying PetClinic-specific PropertyEditors
-      - for request parameter binding. It overrides the default AnnotationMethodHandlerAdapter.
-   -->
-   <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-      <property name="webBindingInitializer">
-         <bean class="org.springframework.samples.petclinic.web.ClinicBindingInitializer"/>
+   <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+      <property name="converters">
+         <set>
+            <bean class="org.springframework.samples.petclinic.web.PetTypeConverter" />
+         </set>
       </property>
    </bean>
-
+          
+   <context:component-scan base-package="org.springframework.samples.petclinic.web"/>
+ 
    <!--
       - This bean resolves specific types of exceptions to corresponding logical 
       - view names for error views. The default behaviour of DispatcherServlet 

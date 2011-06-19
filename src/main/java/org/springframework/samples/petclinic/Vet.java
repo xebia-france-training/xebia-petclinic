@@ -19,6 +19,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 
+import org.hibernate.annotations.Index;
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 
@@ -43,6 +44,7 @@ public class Vet implements Person {
 
     @Basic
     @Column(name = "last_name")
+    @Index(name = "vets_last_name")
     private String lastName;
 
     @ManyToMany(targetEntity = Specialty.class, fetch = FetchType.EAGER)

@@ -1,7 +1,5 @@
 package org.springframework.samples.petclinic;
 
-import java.util.Date;
-
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.Index;
+import org.joda.time.LocalDate;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 /**
  * Simple JavaBean domain object representing a visit.
@@ -22,9 +23,11 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "visits")
 public class Visit implements BaseEntity {
-    @Temporal(TemporalType.DATE)
+    
+    @DateTimeFormat(iso=ISO.DATE)
+    @Basic
     @Column(name = "visit_date")
-    private Date date;
+    private LocalDate date;
 
     @Basic
     private String description;
@@ -34,14 +37,15 @@ public class Visit implements BaseEntity {
     private Integer id;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @Index(name = "visits_pet_id")
     private Pet pet;
 
     /** Creates a new instance of Visit for the current date */
     public Visit() {
-        this.date = new Date();
+        this.date = new LocalDate();
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return this.date;
     }
 
@@ -63,7 +67,7 @@ public class Visit implements BaseEntity {
         return (this.id == null);
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

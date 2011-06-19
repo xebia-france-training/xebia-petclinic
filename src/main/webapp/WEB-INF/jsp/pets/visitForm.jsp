@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/jsp/includes.jsp" %>
 <%@ include file="/WEB-INF/jsp/header.jsp" %>
 
-<h2><c:if test="${visit.new}">New </c:if>Visit:</h2>
+<h2><c:if test="${visit.isNew()}">New </c:if>Visit:</h2>
 
 <form:form modelAttribute="visit">
   <b>Pet:</b>
@@ -14,7 +14,7 @@
     </thead>
     <tr>
       <td>${visit.pet.name}</td>
-      <td><fmt:formatDate value="${visit.pet.birthDate}" pattern="yyyy-MM-dd"/></td>
+      <td><joda:format value="${visit.pet.birthDate}" pattern="yyyy-MM-dd"/></td>
       <td>${visit.pet.type.name}</td>
       <td>${visit.pet.owner.firstName} ${visit.pet.owner.lastName}</td>
     </tr>
@@ -56,9 +56,9 @@
     <th>Description</th>
   </tr>
   <c:forEach var="visit" items="${visit.pet.visits}">
-    <c:if test="${!visit.new}">
+    <c:if test="${!visit.isNew()}">
       <tr>
-        <td><fmt:formatDate value="${visit.date}" pattern="yyyy-MM-dd"/></td>
+        <td><joda:format value="${visit.date}" pattern="yyyy-MM-dd"/></td>
         <td>${visit.description}</td>
       </tr>
     </c:if>

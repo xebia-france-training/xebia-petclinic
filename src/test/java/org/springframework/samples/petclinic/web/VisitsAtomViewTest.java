@@ -26,6 +26,8 @@ import com.sun.syndication.feed.atom.Entry;
 import com.sun.syndication.feed.atom.Feed;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+
+import org.joda.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -54,14 +56,14 @@ public class VisitsAtomViewTest {
 		bello.setType(dog);
 		Visit belloVisit = new Visit();
 		belloVisit.setPet(bello);
-		belloVisit.setDate(new Date(2009, 0, 1));
+		belloVisit.setDate(new LocalDate(2009, 1, 1));
 		belloVisit.setDescription("Bello visit");
 		Pet wodan = new Pet();
 		wodan.setName("Wodan");
 		wodan.setType(dog);
 		Visit wodanVisit = new Visit();
 		wodanVisit.setPet(wodan);
-		wodanVisit.setDate(new Date(2009, 0, 2));
+		wodanVisit.setDate(new LocalDate(2009, 1, 2));
 		wodanVisit.setDescription("Wodan visit");
 		List<Visit> visits = new ArrayList<Visit>();
 		visits.add(belloVisit);
@@ -79,7 +81,7 @@ public class VisitsAtomViewTest {
 
 		assertNotNull("No id set", feed.getId());
 		assertNotNull("No title set", feed.getTitle());
-		assertEquals("Invalid update set", new Date(2009, 0, 2), feed.getUpdated());
+		assertEquals("Invalid update set", new LocalDate(2009, 1, 2).toDateTimeAtStartOfDay().toDate(), feed.getUpdated());
 	}
 
 	@Test

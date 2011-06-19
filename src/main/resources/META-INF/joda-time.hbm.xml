@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- -->
+<!-- Copyright 2008-2010 Xebia and the original author or authors. -->
+<!-- -->
+<!-- Licensed under the Apache License, Version 2.0 (the "License"); -->
+<!-- you may not use this file except in compliance with the License. -->
+<!-- You may obtain a copy of the License at -->
+<!-- -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- -->
+<!-- Unless required by applicable law or agreed to in writing, software -->
+<!-- distributed under the License is distributed on an "AS IS" BASIS, -->
+<!-- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. -->
+<!-- See the License for the specific language governing permissions and -->
+<!-- limitations under the License. -->
+<!-- -->
+<!-- Joda Time to Hibernate common mappings -->
+<!-- -->
+<hibernate-mapping>
+   <typedef name="org.joda.time.DateTime" class="org.joda.time.contrib.hibernate.PersistentDateTime" />
+   <typedef name="org.joda.time.Duration" class="org.joda.time.contrib.hibernate.PersistentInstantAsBigInt" />
+   <typedef name="org.joda.time.Instant" class="org.joda.time.contrib.hibernate.PersistentInstant" />
+   <typedef name="org.joda.time.Interval" class="org.joda.time.contrib.hibernate.PersistentInterval" />
+   <typedef name="org.joda.time.LocalDate" class="org.joda.time.contrib.hibernate.PersistentLocalDate" />
+   <typedef name="org.joda.time.LocalDateTime" class="org.joda.time.contrib.hibernate.PersistentLocalDateTime" />
+   <typedef name="org.joda.time.LocalTime" class="org.joda.time.contrib.hibernate.PersistentLocalTimeAsTime" />
+   <typedef name="org.joda.time.TimeOfDay" class="org.joda.time.contrib.hibernate.PersistentTimeOfDay" />
+   <typedef name="org.joda.time.YearMonthDay" class="org.joda.time.contrib.hibernate.PersistentYearMonthDay" />
+</hibernate-mapping>

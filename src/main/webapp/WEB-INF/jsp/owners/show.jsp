@@ -52,7 +52,7 @@
             </tr>
             <tr>
               <th>Birth Date</th>
-              <td><fmt:formatDate value="${pet.birthDate}" pattern="yyyy-MM-dd"/></td>
+              <td><joda:format value="${pet.birthDate}" pattern="yyyy-MM-dd"/></td>
             </tr>
             <tr>
               <th>Type</th>
@@ -68,7 +68,7 @@
             </thead>
             <c:forEach var="visit" items="${pet.visits}">
               <tr>
-                <td><fmt:formatDate value="${visit.date}" pattern="yyyy-MM-dd"/></td>
+                <td><joda:format value="${visit.date}" pattern="yyyy-MM-dd"/></td>
                 <td>${visit.description}</td>
               </tr>
             </c:forEach>

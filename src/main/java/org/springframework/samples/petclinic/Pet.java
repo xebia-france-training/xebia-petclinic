@@ -2,7 +2,6 @@ package org.springframework.samples.petclinic;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,11 +17,14 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Index;
+import org.hibernate.annotations.TypeDef;
+import org.joda.time.LocalDate;
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 /**
  * Simple JavaBean business object representing a pet.
@@ -34,16 +36,18 @@ import org.springframework.beans.support.PropertyComparator;
 @Entity()
 @Table(name = "pets")
 public class Pet implements NamedEntity {
-    
-    @Temporal(TemporalType.DATE)
-    @Column(name="birth_date")
-    private Date birthDate;
+
+    @DateTimeFormat(iso=ISO.DATE)
+    @Basic
+    @Column(name = "birth_date")
+    private LocalDate birthDate;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Basic
+    @Index(name = "pets_name")
     private String name;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -60,7 +64,7 @@ public class Pet implements NamedEntity {
         visit.setPet(this);
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return this.birthDate;
     }
 
@@ -100,7 +104,7 @@ public class Pet implements NamedEntity {
         return (this.id == null);
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 

@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Index;
+
 /**
  * @author Juergen Hoeller
  */
@@ -33,6 +35,7 @@ public class PetType implements NamedEntity {
     }
 
     @Basic
+    @Index(name = "types_name")
     private String name;
 
     @Override

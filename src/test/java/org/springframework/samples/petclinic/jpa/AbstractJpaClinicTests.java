@@ -2,10 +2,10 @@
 package org.springframework.samples.petclinic.jpa;
 
 import java.util.Collection;
-import java.util.Date;
 
 import javax.persistence.EntityManager;
 
+import org.joda.time.LocalDate;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.samples.petclinic.Clinic;
 import org.springframework.samples.petclinic.Owner;
@@ -166,7 +166,7 @@ public abstract class AbstractJpaClinicTests extends AbstractJpaTests {
 		pet.setName("bowser");
 		Collection<PetType> types = this.clinic.getPetTypes();
 		pet.setType(EntityUtils.getById(types, PetType.class, 2));
-		pet.setBirthDate(new Date());
+		pet.setBirthDate(new LocalDate());
 		o6.addPet(pet);
 		assertEquals(found + 1, o6.getPets().size());
 		this.clinic.storeOwner(o6);

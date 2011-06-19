@@ -17,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Index;
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 import org.springframework.core.style.ToStringCreator;
@@ -31,7 +32,7 @@ import org.springframework.core.style.ToStringCreator;
 @Entity
 @Table(name = "owners")
 public class Owner implements Person {
-    
+
     @Basic
     private String address;
 
@@ -48,6 +49,7 @@ public class Owner implements Person {
 
     @Basic
     @Column(name = "last_name")
+    @Index(name = "owners_last_name")
     private String lastName;
 
     @OneToMany(targetEntity = Pet.class, mappedBy = "owner", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -172,13 +174,13 @@ public class Owner implements Person {
     @Override
     public String toString() {
         return new ToStringCreator(this) //
-        .append("id", this.getId()) //
-        .append("new", this.isNew()) //
-        .append("lastName", this.getLastName()) //
-        .append("firstName", this.getFirstName()) //
-        .append("address", this.address) //
-        .append("city", this.city) //
-        .append("telephone", this.telephone) //
-        .toString();
+                .append("id", this.getId()) //
+                .append("new", this.isNew()) //
+                .append("lastName", this.getLastName()) //
+                .append("firstName", this.getFirstName()) //
+                .append("address", this.address) //
+                .append("city", this.city) //
+                .append("telephone", this.telephone) //
+                .toString();
     }
 }
