@@ -19,7 +19,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Index;
-import org.hibernate.annotations.TypeDef;
 import org.joda.time.LocalDate;
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
@@ -37,7 +36,7 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 @Table(name = "pets")
 public class Pet implements NamedEntity {
 
-    @DateTimeFormat(iso=ISO.DATE)
+    @DateTimeFormat(iso = ISO.DATE)
     @Basic
     @Column(name = "birth_date")
     private LocalDate birthDate;
