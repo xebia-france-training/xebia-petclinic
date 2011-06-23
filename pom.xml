@@ -49,9 +49,11 @@
       </dependency>
       <!-- AspectJ -->
       <dependency>
+         <!-- Spring 3.0.5 doesn't work with aspectjweaver 1.6.10+ -->
+         <!-- due to AssertionError / at org.aspectj.weaver.UnresolvedType.nameToSignature -->
          <groupId>org.aspectj</groupId>
          <artifactId>aspectjweaver</artifactId>
-         <version>1.6.11</version>
+         <version>1.6.9</version>
       </dependency>
 
       <!-- Logging -->
