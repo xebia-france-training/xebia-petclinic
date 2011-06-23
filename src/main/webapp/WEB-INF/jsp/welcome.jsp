@@ -12,5 +12,7 @@
 
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-
+<p>
+   <img src="<spring:url value="/static/images/questionmark.png" htmlEscape="true" />"/><a href="tools/index.jsp">Troubleshooting tools</a>
+</p>
 <%@ include file="/WEB-INF/jsp/footer.jsp" %>
