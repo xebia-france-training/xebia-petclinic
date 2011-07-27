@@ -66,6 +66,11 @@ public class Visit implements BaseEntity {
     public boolean isNew() {
         return (this.id == null);
     }
+    
+    @Override
+    public boolean getIsNew() {
+        return isNew();
+    }
 
     public void setDate(LocalDate date) {
         this.date = date;

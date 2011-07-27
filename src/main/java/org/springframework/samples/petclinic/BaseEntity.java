@@ -15,4 +15,10 @@ public interface BaseEntity {
 
     public boolean isNew();
 
+    /**
+     * Introduced because for tomcat 6 & 7 portability:<p/>
+     * Tomcat 6 doesn't support "${owner.isNew()}"<p/>
+     * Tomcat 7 doesn't support "${owner.new} </p>
+     */
+    public boolean getIsNew();
 }

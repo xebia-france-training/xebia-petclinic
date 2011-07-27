@@ -92,6 +92,11 @@ public class Vet implements Person {
     public boolean isNew() {
         return (this.id == null);
     }
+    
+    @Override
+    public boolean getIsNew() {
+        return isNew();
+    }
 
     @Override
     public void setFirstName(String firstName) {

@@ -102,6 +102,11 @@ public class Pet implements NamedEntity {
     public boolean isNew() {
         return (this.id == null);
     }
+    
+    @Override
+    public boolean getIsNew() {
+        return isNew();
+    }
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;

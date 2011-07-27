@@ -33,6 +33,11 @@ public class PetType implements NamedEntity {
     public boolean isNew() {
         return (this.id == null);
     }
+    
+    @Override
+    public boolean getIsNew() {
+        return isNew();
+    }
 
     @Basic
     @Index(name = "types_name")

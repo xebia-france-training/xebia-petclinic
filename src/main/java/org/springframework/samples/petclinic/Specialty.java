@@ -40,6 +40,11 @@ public class Specialty implements NamedEntity {
     public boolean isNew() {
         return (this.id == null);
     }
+    
+    @Override
+    public boolean getIsNew() {
+        return isNew();
+    }
 
     @Override
     public void setId(Integer id) {

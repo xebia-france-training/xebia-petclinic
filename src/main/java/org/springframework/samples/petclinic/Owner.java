@@ -139,6 +139,11 @@ public class Owner implements Person {
     public boolean isNew() {
         return (this.id == null);
     }
+    
+    @Override
+    public boolean getIsNew() {
+        return isNew();
+    }
 
     public void setAddress(String address) {
         this.address = address;
