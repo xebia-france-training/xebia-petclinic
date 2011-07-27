@@ -12,6 +12,10 @@
       <slf4j.version>1.6.1</slf4j.version>
       <m2eclipse.wtp.contextRoot>/petclinic</m2eclipse.wtp.contextRoot>
    </properties>
+   <scm>
+      <connection>scm:svn:http://xebia-france.googlecode.com/svn/training/xebia-petclinic/trunk/</connection>
+      <developerConnection>scm:svn:https://xebia-france.googlecode.com/svn/training/xebia-petclinic/trunk/</developerConnection>
+   </scm>
    <dependencies>
 
       <!-- Spring -->
