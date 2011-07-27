@@ -5,7 +5,7 @@
          <property name="BASE_FOLDER" value="./target" />
       </then>
       <else>
-         <property name="BASE_FOLDER" value="${catalina.home}" />
+         <property name="BASE_FOLDER" value="${catalina.base}" />
       </else>
    </if>
    <property name="LOGS_FOLDER" value="${BASE_FOLDER}/logs" />
