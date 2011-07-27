@@ -5,15 +5,15 @@
    <artifactId>xebia-petclinic</artifactId>
    <name>xebia-petclinic</name>
    <packaging>war</packaging>
-   <version>1.0.1</version>
+   <version>1.0.2-SNAPSHOT</version>
    <properties>
       <spring.version>3.0.5.RELEASE</spring.version>
       <slf4j.version>1.6.1</slf4j.version>
       <m2eclipse.wtp.contextRoot>/petclinic</m2eclipse.wtp.contextRoot>
    </properties>
    <scm>
-      <connection>scm:svn:http://xebia-france.googlecode.com/svn/training/xebia-petclinic/tags/xebia-petclinic-1.0.1</connection>
-      <developerConnection>scm:svn:https://xebia-france.googlecode.com/svn/training/xebia-petclinic/tags/xebia-petclinic-1.0.1</developerConnection>
+      <connection>scm:svn:http://xebia-france.googlecode.com/svn/training/xebia-petclinic/trunk/</connection>
+      <developerConnection>scm:svn:https://xebia-france.googlecode.com/svn/training/xebia-petclinic/trunk/</developerConnection>
    </scm>
    <dependencies>
 
