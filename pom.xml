@@ -18,14 +18,14 @@
    </scm>
    <distributionManagement>
       <snapshotRepository>
-         <id>xebia-tech-event-nexus</id>
-         <name>Xebia Tech Event Nexus</name>
-         <url>http://nexus.xebia-tech-event.info/...</url>
+         <id>xebia-tech-event-nexus-snapshots</id>
+         <name>Xebia Tech Event Nexus Snapshots</name>
+         <url>http://nexus.xebia-tech-event.info:8081/nexus/content/repositories/snapshots</url>
       </snapshotRepository>
       <repository>
-         <id>xebia-tech-event-nexus</id>
-         <name>Xebia Tech Event Nexus</name>
-         <url>http://nexus.xebia-tech-event.info/...</url>
+         <id>xebia-tech-event-nexus-releases</id>
+         <name>Xebia Tech Event Nexus Releases</name>
+         <url>http://nexus.xebia-tech-event.info:8081/nexus/content/repositories/releases</url>
       </repository>
    </distributionManagement>
 
