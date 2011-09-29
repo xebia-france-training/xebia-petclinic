@@ -226,7 +226,10 @@
          <plugin>
          	<groupId>org.apache.maven.plugins</groupId>
          	<artifactId>tomcat-maven-plugin</artifactId>
-         	<version>1.2</version>	
+         	<version>1.2</version>
+         	<configuration>
+         		<warFile>target/*${project.artifactId}-${project.version}.war</warFile>
+         	</configuration>	
          </plugin>
       </plugins>
    </build>
