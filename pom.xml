@@ -223,6 +223,11 @@
                </includes>
             </configuration>
          </plugin>
+         <plugin>
+         	<groupId>org.apache.maven.plugins</groupId>
+         	<artifactId>tomcat-maven-plugin</artifactId>
+         	<version>1.2</version>	
+         </plugin>
       </plugins>
    </build>
 </project>
