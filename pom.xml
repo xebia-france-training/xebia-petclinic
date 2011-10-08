@@ -16,6 +16,18 @@
         <connection>scm:git:git://github.com/xebia-france-training/xebia-petclinic</connection>
         <developerConnection>scm:git:git://github.com/xebia-france-training/xebia-petclinic</developerConnection>
     </scm>
+    <distributionManagement>
+      <snapshotRepository>
+         <id>xebia-tech-event-nexus-snapshots</id>
+         <name>Xebia Tech Event Nexus Snapshots</name>
+         <url>http://nexus.xebia-tech-event.info:8081/nexus/content/repositories/snapshots</url>
+      </snapshotRepository>
+      <repository>
+         <id>xebia-tech-event-nexus-releases</id>
+         <name>Xebia Tech Event Nexus Releases</name>
+         <url>http://nexus.xebia-tech-event.info:8081/nexus/content/repositories/releases</url>
+      </repository>
+   </distributionManagement>
 
     <dependencies>
 
