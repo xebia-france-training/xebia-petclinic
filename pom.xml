@@ -218,6 +218,17 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.2.1</version>
+                <configuration>
+                    <!-- force release with snapshot dependencies/plugins -->
+                    <!-- this is bad (don't do it at home), but required for the tomcat6 plugin -->
+                    <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+                    <ignoreSnapshots>true</ignoreSnapshots>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
                 <configuration>
